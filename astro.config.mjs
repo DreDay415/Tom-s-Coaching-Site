@@ -6,6 +6,9 @@ export default defineConfig({
   integrations: [tailwind(), react()],
   output: 'static',
   site: 'https://tomcoaching.com',
+  build: {
+    assets: 'assets'
+  },
   vite: {
     ssr: {
       noExternal: ['@astrojs/react']
