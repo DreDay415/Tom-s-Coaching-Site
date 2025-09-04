@@ -1,8 +1,57 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import TestHero from '@/components/TestHero.astro';
+// Basic test - no imports, just pure HTML
 ---
 
-<Layout title="Tom's Coaching - Unlock Your Potential" description="Professional coaching services to help you achieve your goals and unlock your potential. Book a free consultation today.">
-  <TestHero />
-</Layout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tom's Coaching - Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest': {
+                            900: '#172a22',
+                            800: '#1e3a2e',
+                            700: '#254a3a',
+                            600: '#2c5a46'
+                        },
+                        'gold': {
+                            500: '#d0c39b',
+                            400: '#d4c7a0',
+                            300: '#d8cba5',
+                            200: '#dccfaa',
+                            100: '#e0d3af'
+                        }
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <section class="min-h-screen bg-forest-900 flex items-center justify-center px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-gold-500 mb-6 leading-tight font-serif">
+                Tom Jameson
+                <span class="block text-2xl md:text-3xl font-normal text-gold-400 mt-3">
+                    Men's Coach
+                </span>
+            </h1>
+            <p class="text-lg md:text-xl text-gold-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Professional men's coaching that helps you break through barriers, achieve your goals, and create the life you've always dreamed of.
+            </p>
+            <a href="#booking" class="inline-flex items-center px-8 py-4 bg-gold-500 text-forest-900 font-semibold rounded-lg hover:bg-gold-400 transition-colors duration-200">
+                Book Free Consultation
+            </a>
+        </div>
+    </section>
+</body>
+</html>
