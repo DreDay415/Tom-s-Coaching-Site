@@ -1,16 +1,8 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import Hero from '@/components/Hero';
-import Services from '@/components/Services';
-import Testimonials from '@/components/Testimonials';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+import TestHero from '@/components/TestHero.astro';
 ---
 
 <Layout title="Tom's Coaching - Unlock Your Potential" description="Professional coaching services to help you achieve your goals and unlock your potential. Book a free consultation today.">
-  <Hero client:load />
-  <Services client:load />
-  <Testimonials client:load />
-  <Contact client:load />
-  <Footer client:load />
+  <TestHero />
 </Layout>
