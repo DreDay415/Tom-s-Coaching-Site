@@ -1,0 +1,485 @@
+---
+// Complete coaching website using inline CSS
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tom Jameson - Men's Coach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #172a22 0%, #1e3a2e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #d0c39b;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #d0c39b;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #d4c7a0;
+            margin-bottom: 2rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #d8cba5;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #d0c39b;
+            color: #172a22;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+        
+        .btn:hover {
+            background-color: #d4c7a0;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: #d0c39b;
+            border: 2px solid #d0c39b;
+        }
+        
+        .btn-outline:hover {
+            background-color: #d0c39b;
+            color: #172a22;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #172a22;
+            margin-bottom: 3rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #172a22;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #d0c39b;
+            margin-bottom: 1rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: #172a22;
+            color: #d0c39b;
+        }
+        
+        .testimonials .section-title {
+            color: #d0c39b;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #d8cba5;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #d0c39b;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #d0c39b;
+        }
+        
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #172a22;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        
+        .contact-item svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            color: #d0c39b;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #172a22;
+            color: #d0c39b;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer p {
+            color: #d8cba5;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Tom Jameson</h1>
+            <div class="subtitle">Men's Coach</div>
+            <p>Professional men's coaching that helps you break through barriers, achieve your goals, and create the life you've always dreamed of.</p>
+            <a href="#contact" class="btn">Book Free Consultation</a>
+            <a href="#services" class="btn btn-outline">View Services</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Coaching Services</h2>
+            <p style="text-align: center; color: #666; max-width: 600px; margin: 0 auto;">Tailored men's coaching programs designed to help you overcome challenges, achieve your goals, and create lasting positive change in your life.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>1-on-1 Coaching</h3>
+                    <p>Personalized men's coaching sessions tailored to your specific goals and challenges.</p>
+                    <div class="price">$150<span style="font-size: 1rem; color: #666;">/session</span></div>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Group Coaching</h3>
+                    <p>Join a supportive community of like-minded individuals working towards similar goals.</p>
+                    <div class="price">$75<span style="font-size: 1rem; color: #666;">/session</span></div>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Intensive Program</h3>
+                    <p>A comprehensive 12-week transformation program with intensive coaching and accountability.</p>
+                    <div class="price">$1,800<span style="font-size: 1rem; color: #666;">/program</span></div>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What My Clients Say</h2>
+            <p style="text-align: center; color: #d8cba5; max-width: 600px; margin: 0 auto;">Real stories from real people who have transformed their lives through coaching.</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p>"Tom's coaching completely transformed my approach to life. I went from feeling stuck and overwhelmed to having clear direction and confidence."</p>
+                    <div class="testimonial-author">- Sarah Mitchell, Marketing Executive</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"The intensive program was exactly what I needed. Tom helped me break through limiting beliefs I didn't even know I had."</p>
+                    <div class="testimonial-author">- Michael Johnson, Entrepreneur</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"Tom's group coaching sessions were incredible. The community support combined with his expert guidance helped me overcome my fear of public speaking."</p>
+                    <div class="testimonial-author">- Emily Davis, Project Manager</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Ready to Transform Your Life?</h2>
+            <p style="text-align: center; color: #666; max-width: 600px; margin: 0 auto 3rem;">Book your free consultation today and take the first step towards achieving your goals.</p>
+            
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3>Book Your Free Consultation</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">What type of coaching interests you? *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select an option</option>
+                                <option value="1-on-1">1-on-1 Coaching</option>
+                                <option value="group">Group Coaching</option>
+                                <option value="intensive">Intensive Program</option>
+                                <option value="not-sure">Not sure yet</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="goals">What are your main goals? *</label>
+                            <textarea id="goals" name="goals" rows="4" required placeholder="Tell us about your goals and what you'd like to achieve through coaching..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="promoCode">Promo Code (Optional)</label>
+                            <input type="text" id="promoCode" name="promoCode" placeholder="Enter promo code">
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">Book Free Consultation</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>You can also reach out directly to discuss your coaching needs and schedule a consultation.</p>
+                    
+                    <div class="contact-item">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        <span>tom@santamonicamenswork.com</span>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                        <span>808-796-0887</span>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Santa Monica, CA</span>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(23, 42, 34, 0.1); border-radius: 8px;">
+                        <h4 style="color: #172a22; margin-bottom: 1rem;">What You Get:</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem; color: #666;">✓ 30-minute free consultation</li>
+                            <li style="margin-bottom: 0.5rem; color: #666;">✓ Personalized coaching plan</li>
+                            <li style="margin-bottom: 0.5rem; color: #666;">✓ No obligation to continue</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">Tom Jameson, M.S.</h3>
+            <p>Professional men's coaching services designed to help you unlock your potential and achieve your goals.</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">© 2024 Tom Jameson, M.S. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const promoCode = document.getElementById('promoCode').value;
+            const validCodes = ['WELCOME2024', 'FREECALL', 'COACHING50'];
+            
+            if (promoCode && validCodes.includes(promoCode.toUpperCase())) {
+                alert('✅ Promo code applied! You qualify for a free consultation.');
+            } else if (promoCode) {
+                alert('❌ Invalid promo code. Please check and try again.');
+                return;
+            }
+            
+            alert('✅ Thank you! Your consultation request has been received. We\'ll contact you soon to confirm your appointment.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
