@@ -5,5 +5,10 @@ import react from '@astrojs/react';
 export default defineConfig({
   integrations: [tailwind(), react()],
   output: 'static',
-  site: 'https://tomcoaching.com'
+  site: 'https://tomcoaching.com',
+  vite: {
+    ssr: {
+      noExternal: ['@astrojs/react']
+    }
+  }
 });

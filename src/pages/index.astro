@@ -1,16 +1,16 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import Hero from '@/components/Hero.astro';
-import CoachingOfferings from '@/components/CoachingOfferings.astro';
-import Testimonials from '@/components/Testimonials.astro';
-import BookingSection from '@/components/BookingSection.astro';
-import Footer from '@/components/Footer.astro';
+import Hero from '@/components/Hero';
+import Services from '@/components/Services';
+import Testimonials from '@/components/Testimonials';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
 ---
 
 <Layout title="Tom's Coaching - Unlock Your Potential" description="Professional coaching services to help you achieve your goals and unlock your potential. Book a free consultation today.">
-  <Hero />
-  <CoachingOfferings />
-  <Testimonials />
-  <BookingSection />
-  <Footer />
+  <Hero client:load />
+  <Services client:load />
+  <Testimonials client:load />
+  <Contact client:load />
+  <Footer client:load />
 </Layout>
