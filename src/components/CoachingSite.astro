@@ -35,10 +35,25 @@
             min-height: 100vh;
             background: linear-gradient(135deg, #172a22 0%, #1e3a2e 100%);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #d0c39b;
+            padding: 40px 20px;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            opacity: 1;
+            transform: scale(1.05);
         }
         
         .hero h1 {
@@ -280,6 +295,12 @@
                 font-size: 1.2rem;
             }
             
+            .logo {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 25px;
+            }
+            
             .contact-content {
                 grid-template-columns: 1fr;
             }
@@ -289,12 +310,21 @@
                 margin: 10px 0;
             }
         }
+        
+        @media (max-width: 480px) {
+            .logo {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiByeD0iNjAiIGZpbGw9IiMxNzJhMjIiLz4KPHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeD0iMTAiIHk9IjEwIj4KPCEtLSBDZWx0aWMgVHJlZSBvZiBMaWZlIERlc2lnbiAtLT4KPHBhdGggZD0iTTUwIDEwIEM1MCAxMCA0MCAyMCA0MCAzMCBDNDAgNDAgNjAgNDAgNjAgMzAgQzYwIDIwIDUwIDEwIDUwIDEwIFoiIGZpbGw9IiNkMGMzOWIiLz4KPHBhdGggZD0iTTUwIDkwIEM1MCA5MCA0MCA4MCA0MCA3MCBDNDAgNTAgNjAgNTAgNjAgNzAgQzYwIDgwIDUwIDkwIDUwIDkwIFoiIGZpbGw9IiNkMGMzOWIiLz4KPHBhdGggZD0iTTUwIDUwIEM1MCA1MCA0MCA0MCA0MCAzMCBDNDAgMjAgNjAgMjAgNjAgMzAgQzYwIDQwIDUwIDUwIDUwIDUwIFoiIGZpbGw9IiNkMGMzOWIiLz4KPHBhdGggZD0iTTUwIDUwIEM1MCA1MCA0MCA2MCA0MCA3MCBDNDAgODAgNjAgODAgNjAgNzAgQzYwIDYwIDUwIDUwIDUwIDUwIFoiIGZpbGw9IiNkMGMzOWIiLz4KPHBhdGggZD0iTTUwIDUwIEM1MCA1MCA2MCA0MCA2MCAzMCBDNjAgMjAgNDAgMjAgNDAgMzAgQzQwIDQwIDUwIDUwIDUwIDUwIFoiIGZpbGw9IiNkMGMzOWIiLz4KPHBhdGggZD0iTTUwIDUwIEM1MCA1MCA2MCA2MCA2MCA3MCBDNjAgODAgNDAgODAgNDAgNzAgQzQwIDYwIDUwIDUwIDUwIDUwIFoiIGZpbGw9IiNkMGMzOWIiLz4KPHBhdGggZD0iTTUwIDUwIEM1MCA1MCA0MCA1MCA0MCA1MCBDNDAgNTAgNjAgNTAgNjAgNTAgQzYwIDUwIDUwIDUwIDUwIDUwIFoiIGZpbGw9IiNkMGMzOWIiLz4KPC9zdmc+Cjwvc3ZnPgo=" alt="Tom Jameson Coaching Logo - Celtic Tree of Life" class="logo">
             <h1>Tom Jameson</h1>
             <div class="subtitle">Men's Coach</div>
             <p>Professional men's coaching that helps you break through barriers, achieve your goals, and create the life you've always dreamed of.</p>
