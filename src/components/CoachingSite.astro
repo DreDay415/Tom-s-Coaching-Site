@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -357,7 +356,7 @@
             text-align: left;
         }
 
-        /* Isometric Cube Animation */
+        /* Isometric Cube Animation - Pure CSS */
         .isometric-cube {
             position: relative;
             width: 80px;
@@ -367,7 +366,6 @@
             justify-content: center;
             align-items: center;
             margin-left: 40px;
-            cursor: pointer;
         }
 
         .isometric-cube .cube {
@@ -375,6 +373,13 @@
             width: 40px;
             height: 40px;
             transform-style: preserve-3d;
+            transform: rotateX(35.264deg) rotateY(45deg);
+            animation: cubeRotate 8s linear infinite;
+        }
+
+        @keyframes cubeRotate {
+            0% { transform: rotateX(35.264deg) rotateY(45deg); }
+            100% { transform: rotateX(35.264deg) rotateY(405deg); }
         }
 
         .isometric-cube .face {
@@ -805,46 +810,6 @@
             alert('✅ Thank you! Your consultation request has been received. We\'ll contact you soon to confirm your appointment.');
             this.reset();
         });
-
-        // Continuous Isometric Cube Animation
-        function initCubeAnimation() {
-            // Check if GSAP is loaded
-            if (typeof gsap === 'undefined') {
-                console.log('GSAP not loaded yet, retrying...');
-                setTimeout(initCubeAnimation, 100);
-                return;
-            }
-
-            const isometricCube = document.querySelector(".isometric-cube .cube");
-
-            if (isometricCube) {
-                console.log('Isometric cube found, GSAP loaded, starting continuous rotation...');
-                
-                // Set initial isometric view
-                gsap.set(isometricCube, {
-                    rotateX: 35.264, // Standard isometric X angle
-                    rotateY: 45, // Standard isometric Y angle
-                    rotateZ: 0
-                });
-
-                // Start continuous rotation
-                gsap.to(isometricCube, {
-                    rotateY: "+=360", // Rotate 360 degrees
-                    duration: 8, // 8 seconds for a full rotation
-                    ease: "none", // Linear rotation
-                    repeat: -1, // Infinite repeat
-                });
-            } else {
-                console.log('Isometric cube element not found');
-            }
-        }
-
-        // Start initialization when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initCubeAnimation);
-        } else {
-            initCubeAnimation();
-        }
     </script>
 </body>
 </html>
