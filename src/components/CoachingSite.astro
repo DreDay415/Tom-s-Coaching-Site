@@ -375,7 +375,6 @@
             width: 40px;
             height: 40px;
             transform-style: preserve-3d;
-            /* transform: rotateX(35.264deg) rotateY(45deg); */
         }
 
         .isometric-cube .face {
@@ -463,16 +462,6 @@
 
         .isometric-cube .x-symbol .line:nth-child(2) {
             transform: translate(-50%, -50%) rotate(-45deg);
-        }
-
-        /* Test animation */
-        .isometric-cube:hover .cube {
-            animation: testRotate 2s ease-in-out;
-        }
-
-        @keyframes testRotate {
-            0% { transform: rotateX(35.264deg) rotateY(45deg); }
-            100% { transform: rotateX(35.264deg) rotateY(225deg); }
         }
         
         /* Responsive */
@@ -817,7 +806,7 @@
             this.reset();
         });
 
-        // Isometric Cube Animation - Wait for both DOM and GSAP to be ready
+        // Continuous Isometric Cube Animation
         function initCubeAnimation() {
             // Check if GSAP is loaded
             if (typeof gsap === 'undefined') {
@@ -827,10 +816,9 @@
             }
 
             const isometricCube = document.querySelector(".isometric-cube .cube");
-            const cubeContainer = document.querySelector(".isometric-cube");
 
-            if (isometricCube && cubeContainer) {
-                console.log('Isometric cube found, GSAP loaded, initializing animation...');
+            if (isometricCube) {
+                console.log('Isometric cube found, GSAP loaded, starting continuous rotation...');
                 
                 // Set initial isometric view
                 gsap.set(isometricCube, {
@@ -839,35 +827,15 @@
                     rotateZ: 0
                 });
 
-                // Click event handler for the cube
-                cubeContainer.addEventListener("click", () => {
-                    console.log('Cube clicked!');
-                    const isActive = isometricCube.classList.toggle("active");
-                    
-                    if (isActive) {
-                        // Rotate to show back face with X symbol
-                        gsap.to(isometricCube, {
-                            rotateY: 45 + 180 + 360, // Maintain 45° Y rotation + 180° to show back face + 360° extra rotation
-                            duration: 0.8,
-                            ease: "power2.inOut"
-                        });
-                    } else {
-                        // Rotate back to show front face with + symbol
-                        gsap.to(isometricCube, {
-                            rotateY: 45 + 360, // Back to original 45° Y rotation + 360° extra rotation
-                            duration: 0.8,
-                            ease: "power2.inOut",
-                            onComplete: function () {
-                                // Reset to 45 degrees after animation completes
-                                gsap.set(isometricCube, {
-                                    rotateY: 45
-                                });
-                            }
-                        });
-                    }
+                // Start continuous rotation
+                gsap.to(isometricCube, {
+                    rotateY: "+=360", // Rotate 360 degrees
+                    duration: 8, // 8 seconds for a full rotation
+                    ease: "none", // Linear rotation
+                    repeat: -1, // Infinite repeat
                 });
             } else {
-                console.log('Isometric cube elements not found');
+                console.log('Isometric cube element not found');
             }
         }
 
