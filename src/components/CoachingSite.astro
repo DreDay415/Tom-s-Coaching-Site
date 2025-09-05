@@ -795,44 +795,52 @@
             this.reset();
         });
 
-        // Isometric Cube Animation
-        const isometricCube = document.querySelector(".isometric-cube .cube");
+        // Isometric Cube Animation - Wait for DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const isometricCube = document.querySelector(".isometric-cube .cube");
+            const cubeContainer = document.querySelector(".isometric-cube");
 
-        if (isometricCube) {
-            // Set initial isometric view
-            gsap.set(isometricCube, {
-                rotateX: 35.264, // Standard isometric X angle
-                rotateY: 45, // Standard isometric Y angle
-                rotateZ: 0
-            });
-
-            // Click event handler for the cube
-            document.querySelector(".isometric-cube").addEventListener("click", () => {
-                const isActive = isometricCube.classList.toggle("active");
+            if (isometricCube && cubeContainer) {
+                console.log('Isometric cube found, initializing animation...');
                 
-                if (isActive) {
-                    // Rotate to show back face with X symbol
-                    gsap.to(isometricCube, {
-                        rotateY: 45 + 180 + 360, // Maintain 45° Y rotation + 180° to show back face + 360° extra rotation
-                        duration: 0.8,
-                        ease: "power2.inOut"
-                    });
-                } else {
-                    // Rotate back to show front face with + symbol
-                    gsap.to(isometricCube, {
-                        rotateY: 45 + 360, // Back to original 45° Y rotation + 360° extra rotation
-                        duration: 0.8,
-                        ease: "power2.inOut",
-                        onComplete: function () {
-                            // Reset to 45 degrees after animation completes
-                            gsap.set(isometricCube, {
-                                rotateY: 45
-                            });
-                        }
-                    });
-                }
-            });
-        }
+                // Set initial isometric view
+                gsap.set(isometricCube, {
+                    rotateX: 35.264, // Standard isometric X angle
+                    rotateY: 45, // Standard isometric Y angle
+                    rotateZ: 0
+                });
+
+                // Click event handler for the cube
+                cubeContainer.addEventListener("click", () => {
+                    console.log('Cube clicked!');
+                    const isActive = isometricCube.classList.toggle("active");
+                    
+                    if (isActive) {
+                        // Rotate to show back face with X symbol
+                        gsap.to(isometricCube, {
+                            rotateY: 45 + 180 + 360, // Maintain 45° Y rotation + 180° to show back face + 360° extra rotation
+                            duration: 0.8,
+                            ease: "power2.inOut"
+                        });
+                    } else {
+                        // Rotate back to show front face with + symbol
+                        gsap.to(isometricCube, {
+                            rotateY: 45 + 360, // Back to original 45° Y rotation + 360° extra rotation
+                            duration: 0.8,
+                            ease: "power2.inOut",
+                            onComplete: function () {
+                                // Reset to 45 degrees after animation completes
+                                gsap.set(isometricCube, {
+                                    rotateY: 45
+                                });
+                            }
+                        });
+                    }
+                });
+            } else {
+                console.log('Isometric cube elements not found');
+            }
+        });
     </script>
 </body>
 </html>
