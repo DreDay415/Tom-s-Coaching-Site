@@ -43,17 +43,25 @@
             padding: 40px 20px;
         }
         
-        .logo {
-            width: 120px;
-            height: 120px;
+        .logo-container {
             margin-bottom: 30px;
-            opacity: 0.9;
-            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
-        .logo:hover {
+        .logo-container svg {
+            width: 120px;
+            height: 120px;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+        
+        .logo-container svg:hover {
             opacity: 1;
             transform: scale(1.05);
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
         }
         
         .hero h1 {
@@ -295,9 +303,12 @@
                 font-size: 1.2rem;
             }
             
-            .logo {
+            .logo-container svg {
                 width: 100px;
                 height: 100px;
+            }
+            
+            .logo-container {
                 margin-bottom: 25px;
             }
             
@@ -312,9 +323,12 @@
         }
         
         @media (max-width: 480px) {
-            .logo {
+            .logo-container svg {
                 width: 80px;
                 height: 80px;
+            }
+            
+            .logo-container {
                 margin-bottom: 20px;
             }
         }
@@ -324,7 +338,28 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiByeD0iNjAiIGZpbGw9IiMxNzJhMjIiLz4KPHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeD0iMTAiIHk9IjEwIj4KPCEtLSBDZWx0aWMgVHJlZSBvZiBMaWZlIERlc2lnbiAtLT4KPHBhdGggZD0iTTUwIDEwIEM1MCAxMCA0MCAyMCA0MCAzMCBDNDAgNDAgNjAgNDAgNjAgMzAgQzYwIDIwIDUwIDEwIDUwIDEwIFoiIGZpbGw9IiNkMGMzOWIiLz4KPHBhdGggZD0iTTUwIDkwIEM1MCA5MCA0MCA4MCA0MCA3MCBDNDAgNTAgNjAgNTAgNjAgNzAgQzYwIDgwIDUwIDkwIDUwIDkwIFoiIGZpbGw9IiNkMGMzOWIiLz4KPHBhdGggZD0iTTUwIDUwIEM1MCA1MCA0MCA0MCA0MCAzMCBDNDAgMjAgNjAgMjAgNjAgMzAgQzYwIDQwIDUwIDUwIDUwIDUwIFoiIGZpbGw9IiNkMGMzOWIiLz4KPHBhdGggZD0iTTUwIDUwIEM1MCA1MCA0MCA2MCA0MCA3MCBDNDAgODAgNjAgODAgNjAgNzAgQzYwIDYwIDUwIDUwIDUwIDUwIFoiIGZpbGw9IiNkMGMzOWIiLz4KPHBhdGggZD0iTTUwIDUwIEM1MCA1MCA2MCA0MCA2MCAzMCBDNjAgMjAgNDAgMjAgNDAgMzAgQzQwIDQwIDUwIDUwIDUwIDUwIFoiIGZpbGw9IiNkMGMzOWIiLz4KPHBhdGggZD0iTTUwIDUwIEM1MCA1MCA2MCA2MCA2MCA3MCBDNjAgODAgNDAgODAgNDAgNzAgQzQwIDYwIDUwIDUwIDUwIDUwIFoiIGZpbGw9IiNkMGMzOWIiLz4KPHBhdGggZD0iTTUwIDUwIEM1MCA1MCA0MCA1MCA0MCA1MCBDNDAgNTAgNjAgNTAgNjAgNTAgQzYwIDUwIDUwIDUwIDUwIDUwIFoiIGZpbGw9IiNkMGMzOWIiLz4KPC9zdmc+Cjwvc3ZnPgo=" alt="Tom Jameson Coaching Logo - Celtic Tree of Life" class="logo">
+            <div class="logo-container">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="60" cy="60" r="60" fill="#172a22"/>
+                    <circle cx="60" cy="60" r="58" stroke="#d0c39b" stroke-width="2"/>
+                    <!-- Celtic Tree of Life Design -->
+                    <g fill="#d0c39b">
+                        <!-- Central Trunk -->
+                        <rect x="58" y="40" width="4" height="40" rx="2"/>
+                        <!-- Branches - Upper Canopy -->
+                        <path d="M60 40 Q45 35 40 25 Q35 20 30 15 Q25 10 20 8 Q15 6 10 8 Q5 10 8 15 Q10 20 15 25 Q20 30 25 35 Q30 40 40 45 Q50 50 60 45 Q70 50 80 45 Q90 40 95 35 Q100 30 105 25 Q110 20 112 15 Q115 10 110 8 Q105 6 100 8 Q95 10 90 15 Q85 20 80 25 Q75 30 70 35 Q65 40 60 40"/>
+                        <!-- Roots - Lower Section -->
+                        <path d="M60 80 Q45 85 40 95 Q35 100 30 105 Q25 110 20 112 Q15 115 10 112 Q5 110 8 105 Q10 100 15 95 Q20 90 25 85 Q30 80 40 75 Q50 70 60 75 Q70 70 80 75 Q90 80 95 85 Q100 90 105 95 Q110 100 112 105 Q115 110 110 112 Q105 115 100 112 Q95 110 90 105 Q85 100 80 95 Q75 90 70 85 Q65 80 60 80"/>
+                        <!-- Side Branches -->
+                        <path d="M60 50 Q50 45 45 40 Q40 35 35 30 Q30 25 25 20 Q20 15 15 10 Q10 5 5 8 Q0 10 3 15 Q5 20 10 25 Q15 30 20 35 Q25 40 30 45 Q35 50 45 55 Q55 60 60 55 Q65 60 75 55 Q85 50 90 45 Q95 40 100 35 Q105 30 110 25 Q115 20 117 15 Q120 10 115 8 Q110 5 105 8 Q100 10 95 15 Q90 20 85 25 Q80 30 75 35 Q70 40 65 45 Q60 50 60 50"/>
+                        <!-- Leaves -->
+                        <ellipse cx="25" cy="20" rx="3" ry="6" transform="rotate(-30 25 20)"/>
+                        <ellipse cx="95" cy="20" rx="3" ry="6" transform="rotate(30 95 20)"/>
+                        <ellipse cx="20" cy="100" rx="3" ry="6" transform="rotate(30 20 100)"/>
+                        <ellipse cx="100" cy="100" rx="3" ry="6" transform="rotate(-30 100 100)"/>
+                    </g>
+                </svg>
+            </div>
             <h1>Tom Jameson</h1>
             <div class="subtitle">Men's Coach</div>
             <p>Professional men's coaching that helps you break through barriers, achieve your goals, and create the life you've always dreamed of.</p>
