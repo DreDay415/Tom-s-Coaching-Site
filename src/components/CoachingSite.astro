@@ -339,49 +339,113 @@
             text-align: left;
         }
 
-        /* 3D Cube Animation */
-        .cube-wrapper {
-            perspective: 1000px;
-            width: 120px;
-            height: 120px;
-            cursor: grab;
-            margin-left: 40px;
-        }
-
-        .cube-wrapper:active {
-            cursor: grabbing;
-        }
-
-        .cube {
+        /* Isometric Cube Animation */
+        .isometric-cube {
             position: relative;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-        }
-
-        .face {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            background: rgba(208, 195, 155, 0.1);
-            border: 2px solid #d0c39b;
-            box-shadow: 0 0 15px rgba(208, 195, 155, 0.3);
+            width: 80px;
+            height: 80px;
+            perspective: 1200px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            color: #d0c39b;
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            user-select: none;
+            align-items: center;
+            margin-left: 40px;
+            cursor: pointer;
         }
 
-        .front  { transform: rotateY(0deg) translateZ(60px); }
-        .back   { transform: rotateY(180deg) translateZ(60px); }
-        .right  { transform: rotateY(90deg) translateZ(60px); }
-        .left   { transform: rotateY(-90deg) translateZ(60px); }
-        .top    { transform: rotateX(90deg) translateZ(60px); }
-        .bottom { transform: rotateX(-90deg) translateZ(60px); }
+        .isometric-cube .cube {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            transform-style: preserve-3d;
+            transform: rotateX(35.264deg) rotateY(45deg);
+        }
+
+        .isometric-cube .face {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(208, 195, 155, 0.1);
+            border: 1px solid rgba(208, 195, 155, 0.5);
+            backface-visibility: visible;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
+        }
+
+        .isometric-cube .front {
+            transform: translateZ(20px);
+        }
+
+        .isometric-cube .back {
+            transform: rotateY(180deg) translateZ(20px);
+        }
+
+        .isometric-cube .right {
+            transform: rotateY(90deg) translateZ(20px);
+        }
+
+        .isometric-cube .left {
+            transform: rotateY(-90deg) translateZ(20px);
+        }
+
+        .isometric-cube .top {
+            transform: rotateX(90deg) translateZ(20px);
+        }
+
+        .isometric-cube .bottom {
+            transform: rotateX(-90deg) translateZ(20px);
+        }
+
+        /* Plus symbol */
+        .isometric-cube .plus-symbol {
+            position: relative;
+            width: 16px;
+            height: 16px;
+        }
+
+        .isometric-cube .plus-symbol .line {
+            position: absolute;
+            background-color: #d0c39b;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .isometric-cube .plus-symbol .horizontal {
+            width: 16px;
+            height: 2px;
+        }
+
+        .isometric-cube .plus-symbol .vertical {
+            width: 2px;
+            height: 16px;
+        }
+
+        /* X symbol */
+        .isometric-cube .x-symbol {
+            position: relative;
+            width: 16px;
+            height: 16px;
+        }
+
+        .isometric-cube .x-symbol .line {
+            position: absolute;
+            width: 16px;
+            height: 2px;
+            background-color: #d0c39b;
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
+        }
+
+        .isometric-cube .x-symbol .line:nth-child(1) {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .isometric-cube .x-symbol .line:nth-child(2) {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
         
         /* Responsive */
         @media (max-width: 768px) {
@@ -421,24 +485,70 @@
                 margin-bottom: 30px;
             }
             
-            .cube-wrapper {
+            .isometric-cube {
                 margin-left: 0;
-                width: 100px;
-                height: 100px;
+                width: 60px;
+                height: 60px;
             }
             
-            .face {
-                width: 100px;
-                height: 100px;
-                font-size: 1.2rem;
+            .isometric-cube .cube {
+                width: 30px;
+                height: 30px;
             }
             
-            .front  { transform: rotateY(0deg) translateZ(50px); }
-            .back   { transform: rotateY(180deg) translateZ(50px); }
-            .right  { transform: rotateY(90deg) translateZ(50px); }
-            .left   { transform: rotateY(-90deg) translateZ(50px); }
-            .top    { transform: rotateX(90deg) translateZ(50px); }
-            .bottom { transform: rotateX(-90deg) translateZ(50px); }
+            .isometric-cube .face {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .isometric-cube .front {
+                transform: translateZ(15px);
+            }
+            
+            .isometric-cube .back {
+                transform: rotateY(180deg) translateZ(15px);
+            }
+            
+            .isometric-cube .right {
+                transform: rotateY(90deg) translateZ(15px);
+            }
+            
+            .isometric-cube .left {
+                transform: rotateY(-90deg) translateZ(15px);
+            }
+            
+            .isometric-cube .top {
+                transform: rotateX(90deg) translateZ(15px);
+            }
+            
+            .isometric-cube .bottom {
+                transform: rotateX(-90deg) translateZ(15px);
+            }
+            
+            .isometric-cube .plus-symbol {
+                width: 12px;
+                height: 12px;
+            }
+            
+            .isometric-cube .plus-symbol .horizontal {
+                width: 12px;
+                height: 2px;
+            }
+            
+            .isometric-cube .plus-symbol .vertical {
+                width: 2px;
+                height: 12px;
+            }
+            
+            .isometric-cube .x-symbol {
+                width: 12px;
+                height: 12px;
+            }
+            
+            .isometric-cube .x-symbol .line {
+                width: 12px;
+                height: 2px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -642,14 +752,24 @@
                     <p>Professional men's coaching services designed to help you unlock your potential and achieve your goals.</p>
                     <p style="margin-top: 1rem; font-size: 0.9rem;">© 2024 Tom Jameson, M.S. All rights reserved.</p>
                 </div>
-                <div class="cube-wrapper">
+                <div class="isometric-cube">
                     <div class="cube">
-                        <div class="face front">T</div>
-                        <div class="face back">J</div>
-                        <div class="face right">M</div>
-                        <div class="face left">S</div>
-                        <div class="face top">C</div>
-                        <div class="face bottom">H</div>
+                        <div class="face front">
+                            <div class="plus-symbol">
+                                <div class="line horizontal"></div>
+                                <div class="line vertical"></div>
+                            </div>
+                        </div>
+                        <div class="face back">
+                            <div class="x-symbol">
+                                <div class="line"></div>
+                                <div class="line"></div>
+                            </div>
+                        </div>
+                        <div class="face right"></div>
+                        <div class="face left"></div>
+                        <div class="face top"></div>
+                        <div class="face bottom"></div>
                     </div>
                 </div>
             </div>
@@ -675,58 +795,42 @@
             this.reset();
         });
 
-        // 3D Cube Animation
-        const cube = document.querySelector(".cube");
-        const wrapper = document.querySelector(".cube-wrapper");
+        // Isometric Cube Animation
+        const isometricCube = document.querySelector(".isometric-cube .cube");
 
-        if (cube && wrapper) {
-            let rotationX = -20;
-            let rotationY = -20;
-            let autoRotateTween;
-            let direction = 1; // 1 = clockwise, -1 = counter-clockwise
-
-            gsap.set(cube, { rotateX: rotationX, rotateY: rotationY });
-
-            function startAutoRotate() {
-                autoRotateTween = gsap.to(cube, {
-                    rotateY: `+=${360 * direction}`,
-                    duration: 20,
-                    ease: "none",
-                    repeat: -1
-                });
-            }
-
-            function stopAutoRotate() {
-                if (autoRotateTween) autoRotateTween.kill();
-                autoRotateTween = null;
-            }
-
-            // Start spinning
-            startAutoRotate();
-
-            // Draggable for manual control
-            Draggable.create(wrapper, {
-                type: "x,y",
-                inertia: true,
-                onPress: () => stopAutoRotate(),
-                onDrag: function () {
-                    rotationY += this.deltaX * 0.5;
-                    rotationX -= this.deltaY * 0.5;
-                    gsap.to(cube, {
-                        rotateX: rotationX,
-                        rotateY: rotationY,
-                        duration: 0.3,
-                        ease: "power2.out"
-                    });
-                },
-                onRelease: () => gsap.delayedCall(2, startAutoRotate)
+        if (isometricCube) {
+            // Set initial isometric view
+            gsap.set(isometricCube, {
+                rotateX: 35.264, // Standard isometric X angle
+                rotateY: 45, // Standard isometric Y angle
+                rotateZ: 0
             });
 
-            // Toggle spin direction on click
-            wrapper.addEventListener("click", () => {
-                direction *= -1;       // flip direction
-                stopAutoRotate();      // kill current spin
-                startAutoRotate();     // restart with new direction
+            // Click event handler for the cube
+            document.querySelector(".isometric-cube").addEventListener("click", () => {
+                const isActive = isometricCube.classList.toggle("active");
+                
+                if (isActive) {
+                    // Rotate to show back face with X symbol
+                    gsap.to(isometricCube, {
+                        rotateY: 45 + 180 + 360, // Maintain 45° Y rotation + 180° to show back face + 360° extra rotation
+                        duration: 0.8,
+                        ease: "power2.inOut"
+                    });
+                } else {
+                    // Rotate back to show front face with + symbol
+                    gsap.to(isometricCube, {
+                        rotateY: 45 + 360, // Back to original 45° Y rotation + 360° extra rotation
+                        duration: 0.8,
+                        ease: "power2.inOut",
+                        onComplete: function () {
+                            // Reset to 45 degrees after animation completes
+                            gsap.set(isometricCube, {
+                                rotateY: 45
+                            });
+                        }
+                    });
+                }
             });
         }
     </script>
