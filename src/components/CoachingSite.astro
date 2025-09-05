@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -323,6 +325,63 @@
         .footer p {
             color: #d8cba5;
         }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .footer-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        /* 3D Cube Animation */
+        .cube-wrapper {
+            perspective: 1000px;
+            width: 120px;
+            height: 120px;
+            cursor: grab;
+            margin-left: 40px;
+        }
+
+        .cube-wrapper:active {
+            cursor: grabbing;
+        }
+
+        .cube {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+
+        .face {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: rgba(208, 195, 155, 0.1);
+            border: 2px solid #d0c39b;
+            box-shadow: 0 0 15px rgba(208, 195, 155, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #d0c39b;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            user-select: none;
+        }
+
+        .front  { transform: rotateY(0deg) translateZ(60px); }
+        .back   { transform: rotateY(180deg) translateZ(60px); }
+        .right  { transform: rotateY(90deg) translateZ(60px); }
+        .left   { transform: rotateY(-90deg) translateZ(60px); }
+        .top    { transform: rotateX(90deg) translateZ(60px); }
+        .bottom { transform: rotateX(-90deg) translateZ(60px); }
         
         /* Responsive */
         @media (max-width: 768px) {
@@ -351,6 +410,35 @@
                 display: block;
                 margin: 10px 0;
             }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-text {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            
+            .cube-wrapper {
+                margin-left: 0;
+                width: 100px;
+                height: 100px;
+            }
+            
+            .face {
+                width: 100px;
+                height: 100px;
+                font-size: 1.2rem;
+            }
+            
+            .front  { transform: rotateY(0deg) translateZ(50px); }
+            .back   { transform: rotateY(180deg) translateZ(50px); }
+            .right  { transform: rotateY(90deg) translateZ(50px); }
+            .left   { transform: rotateY(-90deg) translateZ(50px); }
+            .top    { transform: rotateX(90deg) translateZ(50px); }
+            .bottom { transform: rotateX(-90deg) translateZ(50px); }
         }
         
         @media (max-width: 480px) {
@@ -548,9 +636,23 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">Tom Jameson, M.S.</h3>
-            <p>Professional men's coaching services designed to help you unlock your potential and achieve your goals.</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem;">© 2024 Tom Jameson, M.S. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-text">
+                    <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">Tom Jameson, M.S.</h3>
+                    <p>Professional men's coaching services designed to help you unlock your potential and achieve your goals.</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">© 2024 Tom Jameson, M.S. All rights reserved.</p>
+                </div>
+                <div class="cube-wrapper">
+                    <div class="cube">
+                        <div class="face front">T</div>
+                        <div class="face back">J</div>
+                        <div class="face right">M</div>
+                        <div class="face left">S</div>
+                        <div class="face top">C</div>
+                        <div class="face bottom">H</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -572,6 +674,61 @@
             alert('✅ Thank you! Your consultation request has been received. We\'ll contact you soon to confirm your appointment.');
             this.reset();
         });
+
+        // 3D Cube Animation
+        const cube = document.querySelector(".cube");
+        const wrapper = document.querySelector(".cube-wrapper");
+
+        if (cube && wrapper) {
+            let rotationX = -20;
+            let rotationY = -20;
+            let autoRotateTween;
+            let direction = 1; // 1 = clockwise, -1 = counter-clockwise
+
+            gsap.set(cube, { rotateX: rotationX, rotateY: rotationY });
+
+            function startAutoRotate() {
+                autoRotateTween = gsap.to(cube, {
+                    rotateY: `+=${360 * direction}`,
+                    duration: 20,
+                    ease: "none",
+                    repeat: -1
+                });
+            }
+
+            function stopAutoRotate() {
+                if (autoRotateTween) autoRotateTween.kill();
+                autoRotateTween = null;
+            }
+
+            // Start spinning
+            startAutoRotate();
+
+            // Draggable for manual control
+            Draggable.create(wrapper, {
+                type: "x,y",
+                inertia: true,
+                onPress: () => stopAutoRotate(),
+                onDrag: function () {
+                    rotationY += this.deltaX * 0.5;
+                    rotationX -= this.deltaY * 0.5;
+                    gsap.to(cube, {
+                        rotateX: rotationX,
+                        rotateY: rotationY,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                },
+                onRelease: () => gsap.delayedCall(2, startAutoRotate)
+            });
+
+            // Toggle spin direction on click
+            wrapper.addEventListener("click", () => {
+                direction *= -1;       // flip direction
+                stopAutoRotate();      // kill current spin
+                startAutoRotate();     // restart with new direction
+            });
+        }
     </script>
 </body>
 </html>
