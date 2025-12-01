@@ -1,0 +1,268 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="site-footer__container">
+    <div class="site-footer__content">
+      <div class="site-footer__text">
+        <h3>Tom Jameson Coaching</h3>
+        <p>
+          Professional men's coaching services designed to help you unlock your potential
+          and achieve your goals with clarity, confidence, and momentum.
+        </p>
+        <nav class="site-footer__links" aria-label="Footer navigation">
+          <a href="/">Home</a>
+          <a href="/#about">About</a>
+          <a href="/#services">Work With Me</a>
+          <a href="/blog">Blog &amp; Resources</a>
+          <a href="/#contact">Contact</a>
+          <a href="/policy">Coaching Disclaimer</a>
+          <a href="/terms">Terms of Service</a>
+        </nav>
+        <p class="site-footer__legal">© {year} Tom Jameson Coaching. All rights reserved.</p>
+      </div>
+      <div class="site-footer__cube" aria-hidden="true">
+        <div class="cube">
+          <div class="face front">
+            <div class="symbol plus">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="face back">
+            <div class="symbol cross">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="face right"></div>
+          <div class="face left"></div>
+          <div class="face top"></div>
+          <div class="face bottom"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: #172a22;
+    color: #d0c39b;
+    padding: 40px 0;
+  }
+
+  .site-footer__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .site-footer__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .site-footer__text {
+    flex: 1;
+    text-align: left;
+  }
+
+  .site-footer__text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .site-footer__text p {
+    color: #d8cba5;
+    line-height: 1.6;
+  }
+
+  .site-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .site-footer__links a {
+    color: #d0c39b;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+  }
+
+  .site-footer__links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 1px;
+    background: rgba(208, 195, 155, 0.4);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+
+  .site-footer__links a:hover::after,
+  .site-footer__links a:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .site-footer__legal {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #cbbf97;
+  }
+
+  .site-footer__cube {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    perspective: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .site-footer__cube .cube {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    transform-style: preserve-3d;
+    transform: rotateX(35.264deg) rotateY(45deg);
+    animation: cubeRotate 8s linear infinite;
+  }
+
+  .site-footer__cube .face {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(208, 195, 155, 0.1);
+    border: 1px solid rgba(208, 195, 155, 0.5);
+    backface-visibility: visible;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .site-footer__cube .front {
+    transform: translateZ(20px);
+  }
+
+  .site-footer__cube .back {
+    transform: rotateY(180deg) translateZ(20px);
+  }
+
+  .site-footer__cube .right {
+    transform: rotateY(90deg) translateZ(20px);
+  }
+
+  .site-footer__cube .left {
+    transform: rotateY(-90deg) translateZ(20px);
+  }
+
+  .site-footer__cube .top {
+    transform: rotateX(90deg) translateZ(20px);
+  }
+
+  .site-footer__cube .bottom {
+    transform: rotateX(-90deg) translateZ(20px);
+  }
+
+  .site-footer__cube .symbol {
+    position: relative;
+    width: 16px;
+    height: 16px;
+  }
+
+  .site-footer__cube .symbol span {
+    position: absolute;
+    background-color: #d0c39b;
+    border-radius: 1px;
+  }
+
+  .site-footer__cube .symbol.plus span:first-child {
+    width: 16px;
+    height: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .site-footer__cube .symbol.plus span:last-child {
+    width: 2px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .site-footer__cube .symbol.cross span:first-child,
+  .site-footer__cube .symbol.cross span:last-child {
+    width: 16px;
+    height: 2px;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+  }
+
+  .site-footer__cube .symbol.cross span:first-child {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  .site-footer__cube .symbol.cross span:last-child {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  @keyframes cubeRotate {
+    0% {
+      transform: rotateX(35.264deg) rotateY(45deg);
+    }
+    100% {
+      transform: rotateX(35.264deg) rotateY(405deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .site-footer__content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .site-footer__cube {
+      margin-left: 0;
+    }
+
+    .site-footer__links {
+      gap: 0.5rem 1rem;
+    }
+  }
+
+  @media print {
+    .site-footer {
+      background: #ffffff;
+      color: #000000;
+      padding: 20px 0;
+      border-top: 1px solid #cccccc;
+    }
+
+    .site-footer__links a,
+    .site-footer__text p,
+    .site-footer__legal {
+      color: #000000 !important;
+    }
+
+    .site-footer__cube {
+      display: none;
+    }
+  }
+</style>
+

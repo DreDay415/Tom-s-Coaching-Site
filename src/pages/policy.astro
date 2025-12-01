@@ -1,0 +1,353 @@
+---
+import Footer from '@/components/Footer.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coaching Disclaimer | Tom Jameson Coaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: #ffffff;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .hero {
+        min-height: 60vh;
+        background: linear-gradient(135deg, #172a22 0%, #1e3a2e 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #d0c39b;
+        padding: 60px 20px 80px;
+      }
+
+      .logo-container {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .logo-img {
+        width: 110px;
+        height: 110px;
+        opacity: 0.9;
+        transition: all 0.3s ease;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+      }
+
+      .logo-img:hover {
+        opacity: 1;
+        transform: scale(1.05);
+        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+      }
+
+      .hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .subtitle {
+        font-size: 1.4rem;
+        font-weight: 400;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        max-width: 640px;
+        margin: 0 auto 2rem;
+        line-height: 1.8;
+        color: #e6dcc1;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #d0c39b;
+        color: #172a22;
+        padding: 14px 28px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.05rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(208, 195, 155, 0.3);
+      }
+
+      .btn:hover {
+        background-color: #c4b082;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(208, 195, 155, 0.4);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: #d0c39b;
+        border: 2px solid #d0c39b;
+      }
+
+      .btn-outline:hover {
+        background-color: #d0c39b;
+        color: #172a22;
+      }
+
+      .policy-section {
+        padding: 80px 0 60px;
+        background: #f8f9fa;
+      }
+
+      .policy-card {
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 48px;
+        box-shadow: 0 20px 50px rgba(23, 42, 34, 0.15);
+        border: 1px solid rgba(208, 195, 155, 0.2);
+        max-width: 880px;
+        margin: 0 auto;
+      }
+
+      .policy-card h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.2rem;
+        color: #172a22;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .policy-card p {
+        font-size: 1.05rem;
+        color: #2e3f37;
+        margin-bottom: 1.25rem;
+      }
+
+      .policy-card ol {
+        margin: 1.5rem 0 1.5rem 1.2rem;
+        padding-left: 1rem;
+        color: #2e3f37;
+      }
+
+      .policy-card li {
+        margin-bottom: 0.85rem;
+        line-height: 1.7;
+        font-size: 1.05rem;
+        padding-left: 0.5rem;
+      }
+
+      .policy-meta {
+        margin-top: 2rem;
+        font-size: 0.95rem;
+        color: #4a5a52;
+      }
+
+      .policy-meta strong {
+        font-weight: 600;
+      }
+
+      .policy-card .copyright {
+        font-size: 0.95rem;
+        color: #4a5a52;
+        margin-top: 0.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          padding: 60px 20px;
+        }
+
+        .hero h1 {
+          font-size: 2.4rem;
+        }
+
+        .subtitle {
+          font-size: 1.2rem;
+        }
+
+        .policy-card {
+          padding: 32px 24px;
+        }
+
+        .policy-card h2 {
+          font-size: 1.9rem;
+        }
+
+        .policy-card p,
+        .policy-card li {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .logo-img {
+          width: 84px;
+          height: 84px;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+      }
+
+      @media print {
+        body {
+          color: #000000;
+          background: #ffffff;
+        }
+
+        .hero,
+        .policy-section {
+          background: #ffffff;
+          color: #000000;
+          box-shadow: none;
+        }
+
+        .hero {
+          min-height: auto;
+          padding: 20px 0;
+        }
+
+        .hero p,
+        .subtitle {
+          color: #000000;
+        }
+
+        .hero-actions {
+          display: none;
+        }
+
+        .policy-card {
+          box-shadow: none;
+          border: 1px solid #cccccc;
+        }
+
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="container">
+        <div class="logo-container">
+          <img
+            src="/images/logo.png"
+            alt="Tom Jameson Coaching Logo"
+            class="logo-img"
+          />
+        </div>
+        <h1>Tom Jameson Coaching</h1>
+        <div class="subtitle">Coaching Disclaimer</div>
+        <p>
+          Please review the agreement below to understand the scope of our coaching
+          services, mutual responsibilities, and important legal considerations.
+        </p>
+        <div class="hero-actions">
+          <a href="/" class="btn">Return Home</a>
+          <a href="/#contact" class="btn btn-outline">Book a Consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section class="policy-section">
+        <div class="container">
+          <article class="policy-card">
+            <h2>Disclaimer &amp; Coaching Agreement</h2>
+            <p>
+              The services provided by Tom Jameson Coaching ("Coach," "I," "me," or "we")
+              through this website and associated web application are coaching services
+              only.
+            </p>
+            <p>
+              Coaching is not therapy, counseling, or psychotherapy.
+              Coaching is a professional relationship designed to help clients achieve
+              personal, professional, or business goals through structured conversation,
+              accountability, goal-setting, and action planning. It is not intended to
+              diagnose, treat, cure, or prevent any mental health condition, disease, or
+              medical condition.
+            </p>
+            <p>
+              By using this website, booking a coaching session, or using the web
+              application, you acknowledge and agree to the following:
+            </p>
+            <ol>
+              <li>
+                I am not a licensed therapist, psychologist, psychiatrist, or medical
+                doctor, or mental health professional. I do not provide therapy, mental
+                health treatment, crisis intervention, or medical advice.
+              </li>
+              <li>
+                Coaching is not a substitute for professional mental health care. If you
+                are experiencing a mental health crisis, suicidal thoughts, severe
+                emotional distress, or need therapy, please immediately contact a licensed
+                mental health professional or call/text 988 (U.S. Suicide &amp; Crisis
+                Lifeline).
+              </li>
+              <li>
+                You are fully responsible for your own physical, mental, and emotional
+                well-being, decisions, choices, and actions.
+              </li>
+              <li>
+                Results are not guaranteed. Coaching outcomes depend entirely on your
+                effort, commitment, and follow-through.
+              </li>
+              <li>
+                All information shared is kept confidential except where disclosure is
+                required or permitted by law (imminent risk of harm, abuse reporting,
+                court order).
+              </li>
+              <li>
+                You are at least 18 years old (or have parental/guardian consent) and are
+                mentally capable of entering into this coaching relationship.
+              </li>
+            </ol>
+            <p>
+              By continuing to use this website, the web app, or my coaching services, you
+              confirm you have read, understood, and agree to this disclaimer.
+            </p>
+            <p class="policy-meta"><strong>Last updated:</strong> December 2025</p>
+            <p class="copyright">
+              © 2025 Tom Jameson Coaching. All rights reserved.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+

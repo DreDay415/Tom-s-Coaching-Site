@@ -1,4 +1,5 @@
 ---
+import Footer from './Footer.astro';
 // Complete coaching website using inline CSS
 ---
 
@@ -331,143 +332,7 @@
             margin-bottom: 1rem;
         }
         
-        /* Footer */
-        .footer {
-            background-color: #172a22;
-            color: #d0c39b;
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .footer p {
-            color: #d8cba5;
-        }
-
-        .footer-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .footer-text {
-            flex: 1;
-            text-align: left;
-        }
-
-        /* Isometric Cube Animation - Pure CSS */
-        .isometric-cube {
-            position: relative;
-            width: 80px;
-            height: 80px;
-            perspective: 1200px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-left: 40px;
-        }
-
-        .isometric-cube .cube {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            transform-style: preserve-3d;
-            transform: rotateX(35.264deg) rotateY(45deg);
-            animation: cubeRotate 8s linear infinite;
-        }
-
-        @keyframes cubeRotate {
-            0% { transform: rotateX(35.264deg) rotateY(45deg); }
-            100% { transform: rotateX(35.264deg) rotateY(405deg); }
-        }
-
-        .isometric-cube .face {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(208, 195, 155, 0.1);
-            border: 1px solid rgba(208, 195, 155, 0.5);
-            backface-visibility: visible;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
-        }
-
-        .isometric-cube .front {
-            transform: translateZ(20px);
-        }
-
-        .isometric-cube .back {
-            transform: rotateY(180deg) translateZ(20px);
-        }
-
-        .isometric-cube .right {
-            transform: rotateY(90deg) translateZ(20px);
-        }
-
-        .isometric-cube .left {
-            transform: rotateY(-90deg) translateZ(20px);
-        }
-
-        .isometric-cube .top {
-            transform: rotateX(90deg) translateZ(20px);
-        }
-
-        .isometric-cube .bottom {
-            transform: rotateX(-90deg) translateZ(20px);
-        }
-
-        /* Plus symbol */
-        .isometric-cube .plus-symbol {
-            position: relative;
-            width: 16px;
-            height: 16px;
-        }
-
-        .isometric-cube .plus-symbol .line {
-            position: absolute;
-            background-color: #d0c39b;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .isometric-cube .plus-symbol .horizontal {
-            width: 16px;
-            height: 2px;
-        }
-
-        .isometric-cube .plus-symbol .vertical {
-            width: 2px;
-            height: 16px;
-        }
-
-        /* X symbol */
-        .isometric-cube .x-symbol {
-            position: relative;
-            width: 16px;
-            height: 16px;
-        }
-
-        .isometric-cube .x-symbol .line {
-            position: absolute;
-            width: 16px;
-            height: 2px;
-            background-color: #d0c39b;
-            top: 50%;
-            left: 50%;
-            transform-origin: center;
-        }
-
-        .isometric-cube .x-symbol .line:nth-child(1) {
-            transform: translate(-50%, -50%) rotate(45deg);
-        }
-
-        .isometric-cube .x-symbol .line:nth-child(2) {
-            transform: translate(-50%, -50%) rotate(-45deg);
-        }
+        /* Footer styles moved into shared Footer component */
         
         /* Responsive */
         @media (max-width: 768px) {
@@ -497,80 +362,6 @@
                 margin: 10px 0;
             }
             
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .footer-text {
-                text-align: center;
-                margin-bottom: 30px;
-            }
-            
-            .isometric-cube {
-                margin-left: 0;
-                width: 60px;
-                height: 60px;
-            }
-            
-            .isometric-cube .cube {
-                width: 30px;
-                height: 30px;
-            }
-            
-            .isometric-cube .face {
-                width: 30px;
-                height: 30px;
-            }
-            
-            .isometric-cube .front {
-                transform: translateZ(15px);
-            }
-            
-            .isometric-cube .back {
-                transform: rotateY(180deg) translateZ(15px);
-            }
-            
-            .isometric-cube .right {
-                transform: rotateY(90deg) translateZ(15px);
-            }
-            
-            .isometric-cube .left {
-                transform: rotateY(-90deg) translateZ(15px);
-            }
-            
-            .isometric-cube .top {
-                transform: rotateX(90deg) translateZ(15px);
-            }
-            
-            .isometric-cube .bottom {
-                transform: rotateX(-90deg) translateZ(15px);
-            }
-            
-            .isometric-cube .plus-symbol {
-                width: 12px;
-                height: 12px;
-            }
-            
-            .isometric-cube .plus-symbol .horizontal {
-                width: 12px;
-                height: 2px;
-            }
-            
-            .isometric-cube .plus-symbol .vertical {
-                width: 2px;
-                height: 12px;
-            }
-            
-            .isometric-cube .x-symbol {
-                width: 12px;
-                height: 12px;
-            }
-            
-            .isometric-cube .x-symbol .line {
-                width: 12px;
-                height: 2px;
-            }
         }
         
         @media (max-width: 480px) {
@@ -744,8 +535,8 @@
                     <p>Ready to start your transformation journey? I'm here to help you unlock your potential and achieve your goals.</p>
                     
                     <p><strong>Email:</strong> tom@tomcoaching.com</p>
-                    <p><strong>Phone:</strong> (555) 123-4567</p>
-                    <p><strong>Location:</strong> Hawaii, USA</p>
+                    <p><strong>Phone:</strong> (808) 796-0887</p>
+                    <p><strong>Location:</strong> Hawaii,Santa Monica, USA</p>
                     
                     <h4>What to Expect:</h4>
                     <ul>
@@ -760,41 +551,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">Tom Jameson, M.S.</h3>
-                    <p>Professional men's coaching services designed to help you unlock your potential and achieve your goals.</p>
-                    <div class="footer-links" style="margin: 1rem 0;">
-                        <a href="/blog" style="color: #d0c39b; text-decoration: none; margin-right: 1rem;">Blog & Resources</a>
-                        <a href="/#contact" style="color: #d0c39b; text-decoration: none;">Contact</a>
-                    </div>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">© 2024 Tom Jameson, M.S. All rights reserved.</p>
-                </div>
-                <div class="isometric-cube">
-                    <div class="cube">
-                        <div class="face front">
-                            <div class="plus-symbol">
-                                <div class="line horizontal"></div>
-                                <div class="line vertical"></div>
-                            </div>
-                        </div>
-                        <div class="face back">
-                            <div class="x-symbol">
-                                <div class="line"></div>
-                                <div class="line"></div>
-                            </div>
-                        </div>
-                        <div class="face right"></div>
-                        <div class="face left"></div>
-                        <div class="face top"></div>
-                        <div class="face bottom"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <Footer />
 
     <script>
         // Simple form handling
