@@ -7,11 +7,6 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold mb-4 font-serif">Tom Jameson, M.S.</h3>
-            <p className="text-gold-300 mb-6 leading-relaxed">
-              Professional men's coaching services designed to help you unlock your potential, 
-              achieve your goals, and create lasting positive change in your life.
-            </p>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-forest-800 rounded-full flex items-center justify-center hover:bg-gold-500 hover:text-forest-900 transition-colors duration-200">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -73,7 +68,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-forest-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gold-400 text-sm">
-              © 2024 Tom Jameson, M.S. All rights reserved.
+              © 2024 Tom Jameson, M.S. Built with love by Oceanparkdigtial.com
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gold-400 hover:text-gold-200 text-sm transition-colors duration-200">Privacy Policy</a>

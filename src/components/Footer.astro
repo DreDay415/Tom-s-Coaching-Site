@@ -6,11 +6,6 @@ const year = new Date().getFullYear();
   <div class="site-footer__container">
     <div class="site-footer__content">
       <div class="site-footer__text">
-        <h3>Tom Jameson Coaching</h3>
-        <p>
-          Professional men's coaching services designed to help you unlock your potential
-          and achieve your goals with clarity, confidence, and momentum.
-        </p>
         <nav class="site-footer__links" aria-label="Footer navigation">
           <a href="/">Home</a>
           <a href="/#about">About</a>
@@ -20,7 +15,10 @@ const year = new Date().getFullYear();
           <a href="/policy">Coaching Disclaimer</a>
           <a href="/terms">Terms of Service</a>
         </nav>
-        <p class="site-footer__legal">© {year} Tom Jameson Coaching. All rights reserved.</p>
+        <p class="site-footer__legal">
+          © {year} Tom Jameson Coaching. Trusted executive coaching for men committed to meaningful growth.
+          Built with care by <a href="https://oceanparkdigital.com" target="_blank" rel="noopener" class="site-footer__legal-link">Oceanparkdigital.com</a>
+        </p>
       </div>
       <div class="site-footer__cube" aria-hidden="true">
         <div class="cube">
@@ -119,6 +117,18 @@ const year = new Date().getFullYear();
     margin-top: 1rem;
     font-size: 0.9rem;
     color: #cbbf97;
+  }
+
+  .site-footer__legal-link {
+    color: var(--color-gold-500);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(208, 195, 155, 0.4);
+  }
+
+  .site-footer__legal-link:hover,
+  .site-footer__legal-link:focus-visible {
+    color: var(--color-gold-300);
+    border-color: var(--color-gold-300);
   }
 
   .site-footer__cube {
